@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 
 const navLinks = [
@@ -50,8 +51,15 @@ export default function Navigation() {
         transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 2.4 }}
       >
         {/* Logo */}
-        <a href="#home" className="text-[#F7F7F5] text-2xl tracking-[0.2em] relative z-10" style={{ fontFamily: "var(--font-playfair)", fontStyle: "italic" }}>
-          Zaia
+        <a href="#home" className="relative z-10 flex items-center">
+          <Image
+            src="/logo.png"
+            alt="Zaia"
+            width={100}
+            height={36}
+            className="h-8 w-auto object-contain"
+            priority
+          />
         </a>
 
         {/* Desktop Nav */}
