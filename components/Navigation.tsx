@@ -55,10 +55,10 @@ export default function Navigation() {
           <Image
             src="/logo.png"
             alt="Zaia"
-            width={250}
-            height={150}
+            width={160}
+            height={90}
             className="object-contain"
-            style={{ width: 250, height: 150 }}
+            style={{ width: 160, height: 90 }}
             priority
           />
         </a>
