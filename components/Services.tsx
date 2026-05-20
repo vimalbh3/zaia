@@ -34,6 +34,12 @@ const services = [
     description: "End-to-end creative leadership for campaigns, launches, and transformations. Guiding vision into execution with precision.",
     tags: ["Campaigns", "Art Direction", "Concepts"],
   },
+  {
+    number: "06",
+    title: "SEO",
+    description: "Search visibility built to last. We craft technical and content strategies that put your brand in front of the right audience, organically.",
+    tags: ["Technical SEO", "Content Strategy", "Rankings"],
+  },
 ];
 
 export default function Services() {
