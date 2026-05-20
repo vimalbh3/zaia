@@ -55,9 +55,9 @@ export default function Navigation() {
           <Image
             src="/logo.png"
             alt="Zaia"
-            width={180}
-            height={60}
-            className="h-12 w-auto object-contain"
+            width={260}
+            height={80}
+            className="h-16 w-auto object-contain"
             priority
           />
         </a>

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 export default function Loader() {
   const [isVisible, setIsVisible] = useState(true);
@@ -27,12 +28,14 @@ export default function Loader() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.2 }}
           >
-            <span
-              className="text-[#F7F7F5] text-5xl tracking-[0.3em]"
-              style={{ fontFamily: "var(--font-playfair)", fontStyle: "italic" }}
-            >
-              Zaia
-            </span>
+            <Image
+              src="/logo.png"
+              alt="Zaia"
+              width={320}
+              height={100}
+              className="h-20 w-auto object-contain"
+              priority
+            />
           </motion.div>
 
           {/* Progress bar */}
