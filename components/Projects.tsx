@@ -120,31 +120,8 @@ export default function Projects() {
               style={{ backgroundColor: project.accent }}
             />
 
-            {/* Hover overlay */}
-            <motion.div
-              className="absolute inset-0 bg-[#F7F7F5] flex flex-col justify-end p-8"
-              initial={{ opacity: 0 }}
-              whileHover={{ opacity: 1 }}
-              transition={{ duration: 0.3 }}
-            >
-              <div className="text-[#0A0A0A]">
-                <p className="text-xs tracking-widest uppercase mb-2 text-[#2A2A2A]">{project.category}</p>
-                <p
-                  className="text-3xl mb-1 font-light"
-                  style={{ fontFamily: "var(--font-playfair)", fontStyle: "italic" }}
-                >
-                  {project.name}
-                </p>
-                <p className="text-sm text-[#2A2A2A]">{project.subtitle}</p>
-                <div className="mt-6 flex items-center gap-3 text-sm tracking-widest uppercase">
-                  <span>View Case</span>
-                  <span>→</span>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Default bottom info */}
-            <div className="absolute bottom-0 left-0 right-0 p-8">
+            {/* Default bottom info — fades out on hover */}
+            <div className="absolute bottom-0 left-0 right-0 p-8 z-10 transition-opacity duration-300 group-hover:opacity-0 pointer-events-none">
               <div className="flex items-end justify-between">
                 <div>
                   <p className="text-[#B8B8B8] text-xs tracking-widest uppercase mb-1">{project.category}</p>
@@ -154,6 +131,24 @@ export default function Projects() {
                   <p className="text-[#B8B8B8] text-sm">{project.subtitle}</p>
                 </div>
                 <span className="text-[#2A2A2A] text-sm">{project.year}</span>
+              </div>
+            </div>
+
+            {/* Hover overlay — slides up from bottom */}
+            <div className="absolute inset-0 z-20 bg-[#F7F7F5] flex flex-col justify-end p-8 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]">
+              <div className="text-[#0A0A0A]">
+                <p className="text-xs tracking-widest uppercase mb-3 text-[#6A6A6A]">{project.category} · {project.year}</p>
+                <p
+                  className="text-4xl mb-2 font-light leading-tight"
+                  style={{ fontFamily: "var(--font-playfair)", fontStyle: "italic" }}
+                >
+                  {project.name}
+                </p>
+                <p className="text-sm text-[#4A4A4A] mb-8">{project.subtitle}</p>
+                <div className="flex items-center gap-3 text-xs tracking-[0.3em] uppercase font-medium border-t border-[#0A0A0A]/10 pt-6">
+                  <span>View Case Study</span>
+                  <span className="text-base">→</span>
+                </div>
               </div>
             </div>
           </motion.div>
