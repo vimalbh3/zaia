@@ -29,11 +29,12 @@ export default function Loader() {
             transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.2 }}
           >
             <Image
-              src="/logo.png"
+              src="/logo.svg"
               alt="Zaia"
-              width={320}
+              width={280}
               height={100}
-              className="h-20 w-auto object-contain"
+              className="object-contain"
+              style={{ width: 280, height: 100 }}
               priority
             />
           </motion.div>
