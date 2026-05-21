@@ -48,7 +48,7 @@ export default function Services() {
   const [hovered, setHovered] = useState<number | null>(null);
 
   return (
-    <section id="services" ref={sectionRef} className="py-24 md:py-36 bg-[#0A0A0A]">
+    <section id="services" ref={sectionRef} className="pt-8 pb-24 md:pt-10 md:pb-36 bg-[#0A0A0A]">
       <div className="px-6 md:px-12 max-w-7xl mx-auto">
         <motion.div
           className="mb-16"
