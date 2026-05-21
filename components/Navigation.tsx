@@ -53,12 +53,12 @@ export default function Navigation() {
         {/* Logo */}
         <a href="#home" className="relative z-10 flex items-center">
           <Image
-            src="/logo.png"
+            src="/logo.svg"
             alt="Zaia"
             width={160}
-            height={90}
+            height={60}
             className="object-contain"
-            style={{ width: 160, height: 90 }}
+            style={{ width: 160, height: 60 }}
             priority
           />
         </a>
