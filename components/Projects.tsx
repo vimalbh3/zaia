@@ -31,6 +31,15 @@ const projects = [
     accent: "#C8C8C8",
     number: "03",
   },
+  {
+    name: "Numero",
+    subtitle: "Content Production",
+    year: "2024",
+    category: "Magazine · Content",
+    color: "#161616",
+    accent: "#D0D0D0",
+    number: "04",
+  },
 ];
 
 export default function Projects() {
