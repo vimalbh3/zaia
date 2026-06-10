@@ -15,6 +15,17 @@ html {
 
 * {
   cursor: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Restore default cursor & touch behaviour on mobile */
+@media (max-width: 768px) {
+  * {
+    cursor: auto;
+  }
+  body {
+    touch-action: pan-y;
+  }
 }
 
 body {

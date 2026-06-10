@@ -57,8 +57,7 @@ export default function Navigation() {
             alt="Zaia"
             width={160}
             height={60}
-            className="object-contain"
-            style={{ width: 160, height: 60 }}
+            className="object-contain w-[110px] h-[42px] md:w-[160px] md:h-[60px]"
             priority
           />
         </a>

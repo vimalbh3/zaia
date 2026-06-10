@@ -57,6 +57,11 @@ export default function Cursor() {
     };
   }, [cursorX, cursorY]);
 
+  // Don't render on touch devices
+  if (typeof window !== "undefined" && window.matchMedia("(pointer: coarse)").matches) {
+    return null;
+  }
+
   return (
     <>
       {/* Main cursor dot */}

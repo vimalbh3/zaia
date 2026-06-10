@@ -2,6 +2,7 @@
 
 import { useRef, useState, useEffect } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
+import { type TouchEvent } from "react";
 
 const testimonials = [
   {
@@ -59,6 +60,21 @@ export default function Testimonials() {
     if (!paused) startInterval();
   };
 
+  // Touch swipe support
+  const touchStartX = useRef<number>(0);
+  const handleTouchStart = (e: TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+  const handleTouchEnd = (e: TouchEvent) => {
+    const diff = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) {
+      const next = diff > 0
+        ? (current + 1) % testimonials.length
+        : (current - 1 + testimonials.length) % testimonials.length;
+      goTo(next);
+    }
+  };
+
   return (
     <section ref={sectionRef} className="py-24 md:py-36 bg-[#0A0A0A]">
       <div className="px-6 md:px-12 max-w-7xl mx-auto">
@@ -83,6 +99,8 @@ export default function Testimonials() {
           transition={{ duration: 0.8, delay: 0.2 }}
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
           className="relative"
         >
           <div className="relative min-h-[280px] md:min-h-[240px] flex items-center">

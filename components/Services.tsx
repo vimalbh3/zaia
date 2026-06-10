@@ -45,7 +45,9 @@ const services = [
 export default function Services() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
-  const [hovered, setHovered] = useState<number | null>(null);
+  const [active, setActive] = useState<number | null>(null);
+
+  const toggle = (i: number) => setActive(active === i ? null : i);
 
   return (
     <section id="services" ref={sectionRef} className="pt-8 pb-24 md:pt-10 md:pb-36 bg-[#0A0A0A]">
@@ -69,12 +71,13 @@ export default function Services() {
           {services.map((service, i) => (
             <motion.div
               key={service.number}
-              className="relative border-t border-[#1E1E1E] py-8 group"
+              className="relative border-t border-[#1E1E1E] py-8 group cursor-pointer"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94], delay: i * 0.08 }}
-              onHoverStart={() => setHovered(i)}
-              onHoverEnd={() => setHovered(null)}
+              onHoverStart={() => setActive(i)}
+              onHoverEnd={() => setActive(null)}
+              onClick={() => toggle(i)}
             >
               <div className="flex flex-col md:flex-row md:items-start gap-6 md:gap-0">
                 {/* Number */}
@@ -93,7 +96,7 @@ export default function Services() {
 
                   <motion.div
                     initial={false}
-                    animate={{ height: hovered === i ? "auto" : 0, opacity: hovered === i ? 1 : 0 }}
+                    animate={{ height: active === i ? "auto" : 0, opacity: active === i ? 1 : 0 }}
                     transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
                     style={{ overflow: "hidden" }}
                   >
@@ -117,7 +120,7 @@ export default function Services() {
                 <div className="md:w-24 flex-shrink-0 flex md:justify-end">
                   <motion.span
                     className="text-[#2A2A2A] text-lg"
-                    animate={{ x: hovered === i ? 8 : 0, opacity: hovered === i ? 1 : 0.3 }}
+                    animate={{ x: active === i ? 8 : 0, opacity: active === i ? 1 : 0.3 }}
                     transition={{ duration: 0.2 }}
                   >
                     →
@@ -129,7 +132,7 @@ export default function Services() {
               <motion.div
                 className="absolute bottom-0 left-0 h-px bg-[#B8B8B8]"
                 initial={{ scaleX: 0, originX: 0 }}
-                animate={{ scaleX: hovered === i ? 1 : 0 }}
+                animate={{ scaleX: active === i ? 1 : 0 }}
                 transition={{ duration: 0.4 }}
                 style={{ width: "100%" }}
               />
